@@ -23,7 +23,7 @@ services:
   frontend:
     image: anzorkhamukov/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
-    command: cp -r /app/build/. /frontend_static/
+    command: cp -r /app/build/. /static/
     volumes:
       - static_volume:/static
 
