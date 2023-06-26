@@ -2,26 +2,34 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
+SECRET_KEY = os.environ.get('KEY', default='key')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '158.160.24.251', '127.0.0.1', 'kittygramsite.hopto.org']
+ALLOWED_HOSTS = os.environ.get('KEY')
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework.authtoken',
-    'rest_framework',
-    'djoser',
-    'cats.apps.CatsConfig',
+DJANGO_APPS = [ 
+    'django.contrib.admin', 
+    'django.contrib.auth', 
+    'django.contrib.contenttypes', 
+    'django.contrib.sessions', 
+    'django.contrib.messages', 
+    'django.contrib.staticfiles', 
 ]
+LOCAL_APPS = [ 
+    'rest_framework.authtoken', 
+    'rest_framework', 
+    'djoser', 
+    'cats.apps.CatsConfig', 
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
