@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('KEY', default='key')
 
 DEBUG = True
 
-ALLOWED_HOSTS = 'localhost', '158.160.24.251', '127.0.0.1', 'kittygramsite.hopto.org'
+ALLOWED_HOSTS = ['localhost', '158.160.24.251', '127.0.0.1', 'kittygramsite.hopto.org']
 
 
 DJANGO_APPS = [ 
